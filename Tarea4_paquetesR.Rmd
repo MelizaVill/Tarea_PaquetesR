@@ -1,6 +1,6 @@
 ---
 title: "Tarea4_paquetesR"
-author: "Sthefanny Villa"
+author: "Sthefanny Villa y Mishel Calero"
 date: "2023-03-27"
 output: html_document
 ---
