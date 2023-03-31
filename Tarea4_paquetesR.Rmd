@@ -4,27 +4,59 @@ author: "Sthefanny Villa"
 date: "2023-03-27"
 output: html_document
 ---
+```{r setup}
+#Tarea 4
+## Al menos 3 funciones distintas, al menos uno de ellos realiza una gráfica utilizando ggplot
+#Funciones
+###Existen varias funciones pre-cargadas en R las cuales puede ser utilizadas a la vez para esscribir nuevas funciones.Se tiene operaciones para las cuales no se tiene funciones definidas, por lo tanto deben ser escritas. Una función es un bloque de instrucciones que pueden ser utilizadas continuamente en un programa, es decir, permite automatizar operaciones. Generar funciones es más productivo que copiar y pegar las instrucciones cada vez que se necesita, por lo tanto tiene las siguientes ventajas:
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+###Se asigna un identificador que permite reconocer lo que realiza la función.
+
+#*Se requiere pocos cambios, en general solamente los argumentos.
+
+#*Se evita errores accidentales que pueden ocurrir al copiar y pegar.
+
+#*Se puede utilizar para escribir nuevas funciones.
+
+#*Se tiene una forma compacta para operar.
+
+#*Facilita el aprendizaje del lenguaje de programación.
+
+##Basicamente: La estructura de una función:
+
+#"nombreFuncion <- function(argumento1, argumento2, ...){instruciones return(resultado)}"
+```
+```{r, ejemplo base}
+cuadrado <- function(x)
+  {y = x*exp(2) 
+  return(y)}
+cuadrado(2)
+potencia <- function(x=2, y=1)
+  {pot = x**y
+  return(pot)}
+potencia()
 ```
 
-## R Markdown
+```{r, funcion #1}
+Alumnos <- data.frame(
+  Numero = paste("#",seq(1,10,by=2)),
+  Edad = sample(15:18,10,TRUE),
+  Calificacion = sample(1:10,10,TRUE),
+  Genero = sample(c("Mujer", "Hombre"),10,TRUE),
+Materia = sample(c("Matematicas","Ciencias","Lengua", "Ingles"),10,TRUE))
+promedio <- function(x) 
+  {total <- 0
+  n <- length(x)
+    for (i in seq_along(x)) 
+    {total <- total + x[i] / n}
+    total}
+  promedio(Alumnos$Calificacion)
+  promedio(Alumnos$Edad)
+  Alumnos
+  plot(Alumnos$Calificacion, main = "Calificaciones", type = 'h', col = rainbow(10), bg="brown3", xlim = c(0, 10), ylim = c(0, 10),xlab = "Estudiante", ylab = "Calificacion")
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r, funcion #2}
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r, funcion #3}
+```
